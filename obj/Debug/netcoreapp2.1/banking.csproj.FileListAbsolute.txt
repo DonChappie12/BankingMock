@@ -44,3 +44,4 @@
 /Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Manager/UserList.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Customer/CreateAccount.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Customer/AccountDetails.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Admin/ViewUserDetails.g.cshtml.cs

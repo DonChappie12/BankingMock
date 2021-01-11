@@ -1,3 +1,37 @@
-<div>
-    <h1>Hi</h1>
+@model IEnumerable<User>
+
+<div class="container">
+    <div class="row">
+        <h1>Hi</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(User user in Model){
+                    <tr>
+                        <td>@user.Id</td>
+                        <td>@user.Email</td>
+                        <td>
+                            <!-- Todo: Goes to view and Id is in route parameter, hwever no data shows on page -->
+                            <a class="btn btn-light" asp-controller="Admin" asp-action="ViewUserDetails" asp-route-id="@user.Id">View User Details</a>
+                            <button class="btn btn-warning">Edit User Details</button>
+                        </td>
+                        <td>
+                            <form asp-controller="Admin" asp-action="Delete" asp-route-id="@user.Id" method="post">
+                                <button type="submit" class="btn btn-danger">
+                                    Delete User
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
 </div>

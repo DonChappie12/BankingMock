@@ -33,6 +33,11 @@ namespace banking.Controllers
             return View();
         }
 
+        public IActionResult ViewUserDetails()
+        {
+            return View();
+        }
+
         [HttpPost]
         public async Task<IActionResult> CreateUser(NewUser newUser)
         {
@@ -60,6 +65,37 @@ namespace banking.Controllers
                 }
             }
             return View(newUser);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Delete(string Id)
+        {
+            // *** Finds user to delete ***
+            User user = await _userManager.FindByIdAsync(Id);
+            if (user != null)
+            {
+                // *** Validates if user has accounts  and removes them***
+                var removeAccounts = _context.Account;
+                if(removeAccounts !=null)
+                {
+                    foreach(var del in removeAccounts)
+                    {
+                        _context.Remove(del);
+                    }
+                }
+
+                // *** Deletes user from DB ***
+                IdentityResult result = await _userManager.DeleteAsync(user);
+                if (result.Succeeded)
+                {
+                    return RedirectToAction("Dashboard", "Admin");
+                }
+                // else
+                //     Errors(result);
+            }
+            else
+                ModelState.AddModelError("", "User Not Found");
+            return View();
         }
     }
 }
