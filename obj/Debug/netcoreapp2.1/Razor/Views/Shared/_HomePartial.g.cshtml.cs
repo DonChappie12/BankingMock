@@ -69,7 +69,7 @@ using banking.Models;
             WriteLiteral("    ");
             EndContext();
             BeginContext(34, 95, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0d78a477861f4799a334373f3aa3097b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "085b691d741641538e7ae991d41d969e", async() => {
                 BeginContext(116, 9, true);
                 WriteLiteral("Dashboard");
                 EndContext();
@@ -106,7 +106,7 @@ else if(User.IsInRole("Manager"))
             WriteLiteral("    ");
             EndContext();
             BeginContext(172, 102, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0d99068a3fe44790a95a64393e8fca3b", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ceb57fe2f556484ebea5be3f89e85a21", async() => {
                 BeginContext(263, 7, true);
                 WriteLiteral("Banking");
                 EndContext();
@@ -143,7 +143,7 @@ else if(User.IsInRole("Customer"))
             WriteLiteral("    ");
             EndContext();
             BeginContext(318, 100, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "aeaeb34d36494b298a1d95d1e531bdf5", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "821d14130f2d403cb0ec7daf3161a40f", async() => {
                 BeginContext(407, 7, true);
                 WriteLiteral("Banking");
                 EndContext();
@@ -180,7 +180,7 @@ else
             WriteLiteral("    ");
             EndContext();
             BeginContext(432, 88, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "594c5a6fe59741b2bad40a16868070b2", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "10abc34543dd4b578a1edfb2b6f5d515", async() => {
                 BeginContext(509, 7, true);
                 WriteLiteral("Banking");
                 EndContext();

@@ -18,9 +18,8 @@
                         <td>@user.Id</td>
                         <td>@user.Email</td>
                         <td>
-                            <!-- Todo: Goes to view and Id is in route parameter, hwever no data shows on page -->
                             <a class="btn btn-light" asp-controller="Admin" asp-action="ViewUserDetails" asp-route-id="@user.Id">View User Details</a>
-                            <button class="btn btn-warning">Edit User Details</button>
+                            <a class="btn btn-warning" asp-controller="Admin" asp-action="EditUser" asp-route-id="@user.Id">Edit User Details</a>
                         </td>
                         <td>
                             <form asp-controller="Admin" asp-action="Delete" asp-route-id="@user.Id" method="post">

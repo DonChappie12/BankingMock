@@ -1,3 +1,24 @@
+@model User
+
 <div>
     <h3>User Details here</h3>
+    <h3>@Model.Id</h3>
+    @if(@Model.FirstName == null)
+    {
+        <h3>Sorry no name yet</h3>
+    }
+    else{
+        <h6>@Model.FirstName</h6>
+    }
+    <a class="btn btn-light" asp-controller="Admin" asp-action="EditUser" asp-route-id="@Model.Id">Edit User Details</a>
+    @if(@ViewBag.accounts == null)
+    {
+        <h2>Sorry no accounts yet</h2>
+    }
+    else{
+        @foreach(var act in @ViewBag.accounts){
+            <h3>@act.TypeOfAccount</h3>
+            <h4>$@act.Amount</h4>
+        }
+    }
 </div>

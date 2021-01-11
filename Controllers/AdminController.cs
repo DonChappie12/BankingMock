@@ -1,7 +1,10 @@
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using banking.Models;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 namespace banking.Controllers
 {
@@ -33,9 +36,17 @@ namespace banking.Controllers
             return View();
         }
 
-        public IActionResult ViewUserDetails()
+        public async Task<IActionResult> ViewUserDetails(string Id)
         {
-            return View();
+            User user = await _userManager.FindByIdAsync(Id);
+            if(user != null)
+            {
+                // List <Account> accounts = _context.Account.ToList();
+                // List <Account> accounts = _context.Account.Where(id => user.Id == Id).Include(u => u.user).ToList();
+                List <Account> accounts = _context.Account.Where(id => id.user.Id == user.Id).ToList();
+                ViewBag.accounts = accounts;
+            }
+            return View(user);
         }
 
         [HttpPost]
