@@ -1,0 +1,16 @@
+@if(User.IsInRole("Admin"))
+{
+    <a asp-area="" asp-controller="Admin" asp-action="Dashboard" class="navbar-brand">Dashboard</a>
+}
+else if(User.IsInRole("Manager"))
+{
+    <a asp-area="" asp-controller="Manager" asp-action="ManagerDashboard" class="navbar-brand">Banking</a>
+}
+else if(User.IsInRole("Customer"))
+{
+    <a asp-area="" asp-controller="Customer" asp-action="UserDashboard" class="navbar-brand">Banking</a>
+}
+else
+{
+    <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Banking</a>
+}

@@ -1,0 +1,27 @@
+@model User
+
+<div>
+    <h2>Welcome @Model.FirstName</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Type of Account</th>
+                <th>Amount</th>
+                <th>View</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach(var act in @ViewBag.accounts){
+                <tr>
+                    <td>@act.TypeOfAccount</td>
+                    <td>$@act.Amount</td>
+                    <td>
+                        <button type="submit" class="btn btn-light" href="/@act.Id">View Account Details</button>
+                        <button type="submit" class="btn btn-warning">Edit Account Details</button>
+                        <button type="submit" class="btn btn-danger">Delete Account</button>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>    
+</div>

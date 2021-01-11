@@ -1,0 +1,32 @@
+@if(User.IsInRole("Admin"))
+{
+    <ul class="nav navbar-nav">
+        <li><a asp-area="" asp-controller="Admin" asp-action="CreateUser">Create New Customer</a></li>
+        <li><a asp-area="" asp-controller="Admin" asp-action="EditUser">Edit User</a></li>
+        <li><a>Change User Roles</a></li>
+
+    </ul>
+}
+else if(User.IsInRole("Manager"))
+{
+    <ul class="nav navbar-nav">
+        <li><a asp-area="" asp-controller="Manager" asp-action="ManagerDashboard">Home</a></li>
+        <li><a asp-area="" asp-controller="Manager" asp-action="UserList">All Users</a></li>
+    </ul>
+}
+else if(User.IsInRole("Customer"))
+{
+    <ul class="nav navbar-nav">
+        <li><a asp-area="" asp-controller="Customer" asp-action="UserDashboard">Home</a></li>
+        <li><a asp-area="" asp-controller="Customer" asp-action="Cart">Cart</a></li>
+        <li><a asp-area="" asp-controller="Customer" asp-action="CreateAccount">Create an Account</a></li>
+    </ul>
+}
+else
+{
+    <ul class="nav navbar-nav">
+        <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
+        <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+    </ul>
+}
