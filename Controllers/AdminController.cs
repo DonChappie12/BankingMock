@@ -31,18 +31,22 @@ namespace banking.Controllers
             return View();
         }
 
-        public IActionResult EditUser()
+        public async Task<IActionResult> EditUser(string Id)
         {
-            return View();
+            User editingUser = await _userManager.FindByIdAsync(Id);
+            if (editingUser != null)
+                return View(editingUser);
+            else
+                return RedirectToAction("Dashboard", "Admin");
         }
 
         public async Task<IActionResult> ViewUserDetails(string Id)
         {
+            // *** Finds user in DB ***
             User user = await _userManager.FindByIdAsync(Id);
             if(user != null)
             {
-                // List <Account> accounts = _context.Account.ToList();
-                // List <Account> accounts = _context.Account.Where(id => user.Id == Id).Include(u => u.user).ToList();
+                // *** Finds accounts associated with the user ***
                 List <Account> accounts = _context.Account.Where(id => id.user.Id == user.Id).ToList();
                 ViewBag.accounts = accounts;
             }
@@ -63,7 +67,6 @@ namespace banking.Controllers
                     UserName = newUser.Email
                 };
                 var result = await _userManager.CreateAsync(create, newUser.Password);
-                // var result = await _userManager.CreateAsync(newUser, newUser.Password);
                 if(result.Succeeded)
                 {
                     await _userManager.AddToRoleAsync(create, "Customer");
@@ -79,6 +82,24 @@ namespace banking.Controllers
         }
 
         [HttpPost]
+        public async Task<IActionResult> Update(string Id, EditUser edit)
+        {
+            User editingUser = await _userManager.FindByIdAsync(Id);
+            if(editingUser != null && ModelState.IsValid)
+            {
+                editingUser.FirstName = edit.FirstName;
+                editingUser.LastName = edit.LastName;
+                editingUser.Email = edit.Email;
+                editingUser.DateOfBirth = edit.DateOfBirth;
+                
+                IdentityResult result = await _userManager.UpdateAsync(editingUser);
+                if (result.Succeeded)
+                    return RedirectToAction("Dashboard", "Admin");
+            }
+            return RedirectToAction("EditUser", "Admin");
+        }
+
+        [HttpPost]
         public async Task<IActionResult> Delete(string Id)
         {
             // *** Finds user to delete ***
@@ -87,7 +108,7 @@ namespace banking.Controllers
             {
                 // *** Validates if user has accounts  and removes them***
                 var removeAccounts = _context.Account;
-                if(removeAccounts !=null)
+                if(removeAccounts != null)
                 {
                     foreach(var del in removeAccounts)
                     {
