@@ -29,14 +29,39 @@ namespace banking.Controllers
             return View(currUser);
         }
 
-        public IActionResult Cart()
+        public IActionResult CreateAccount()
         {
             return View();
         }
 
-        public IActionResult CreateAccount()
+        public async Task<IActionResult> EditSelf()
         {
+            User editing = await _userManager.GetUserAsync(HttpContext.User);
+            if(editing != null)
+            {
+                return View(editing);
+            }
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateSelf(string Id, EditUser edit)
+        {
+            // *** Find User in DB ***
+            User editingUser = await _userManager.FindByIdAsync(Id);
+            if(editingUser != null && ModelState.IsValid)
+            {
+                editingUser.FirstName = edit.FirstName;
+                editingUser.LastName = edit.LastName;
+                editingUser.Email = edit.Email;
+                editingUser.DateOfBirth = edit.DateOfBirth;
+                // *** Saves edited user to DB ***
+                IdentityResult result = await _userManager.UpdateAsync(editingUser);
+                if (result.Succeeded)
+                    return RedirectToAction("UserDashboard", "Customer");
+            }
+            // ? Currently redirects to Admin Dashboard
+            return RedirectToAction("EditSelf", "Customer");
         }
 
         [HttpPost]

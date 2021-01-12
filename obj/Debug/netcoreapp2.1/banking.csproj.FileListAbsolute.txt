@@ -38,7 +38,6 @@
 /Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Admin/Dashboard.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Shared/_HomePartial.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Admin/EditUser.g.cshtml.cs
-/Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Customer/Cart.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Customer/UserDashboard.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Manager/ManagerDashboard.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Manager/UserList.g.cshtml.cs
@@ -47,3 +46,4 @@
 /Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Admin/ViewUserDetails.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Customer/EditAccount.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Customer/AddFunds.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Customer/EditSelf.g.cshtml.cs
