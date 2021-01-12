@@ -106,7 +106,7 @@ using banking.Models;
             WriteLiteral("\">View Account Details</button> -->\n                        ");
             EndContext();
             BeginContext(591, 126, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6349d719292540d7b374c51cb691d40c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "b31f7c27945c4ecdbbace5d7a13d3dff", async() => {
                 BeginContext(693, 20, true);
                 WriteLiteral("View Account Details");
                 EndContext();
@@ -144,7 +144,7 @@ using banking.Models;
             WriteLiteral("\n                        ");
             EndContext();
             BeginContext(742, 117, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a4a38fb9d7a64be7a2193b1ce9f65ee8", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "66f81bfe67d64d8d8538a6d6d3b8e696", async() => {
                 BeginContext(843, 12, true);
                 WriteLiteral("Edit Account");
                 EndContext();

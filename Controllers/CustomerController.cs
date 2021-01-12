@@ -47,7 +47,7 @@ namespace banking.Controllers
             {
                 if(ModelState.IsValid)
                 {
-                    // Todo: Validate that TpeOfAccount is Checkings or Savings
+                    // Todo: Validate that TypeOfAccount is Checkings or Savings
                     // if(Acc.TypeOfAccount != "Checkings" || Acc.TypeOfAccount != "Savings")
                     // {
                     //     return View(Acc);
@@ -75,9 +75,39 @@ namespace banking.Controllers
             return View(account);
         }
 
-        public IActionResult EditAccount()
+        public async Task<IActionResult> EditAccount(string Id)
         {
-            return View();
+            User currUser = await _userManager.GetUserAsync(HttpContext.User);
+            var account = _context.Account.Where(userId => userId.user.Id == currUser.Id).SingleOrDefault(i => i.Id.ToString() == Id);
+            return View(account);
+        }
+
+        public async Task<IActionResult> Addfunds(string Id)
+        {
+            User currUser = await _userManager.GetUserAsync(HttpContext.User);
+            var account = _context.Account.Where(userId => userId.user.Id == currUser.Id).SingleOrDefault(i => i.Id.ToString() == Id);
+            return View(account);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddFunds(string Id, double Amount)
+        {
+            // *** Gets current user and account associated with current user ***
+            User currUser = await _userManager.GetUserAsync(HttpContext.User);
+            var account = _context.Account.Where(userId => userId.user.Id == currUser.Id).SingleOrDefault(i => i.Id.ToString() == Id);
+            // *** We will add total amount with new funding ***
+            var total = account.Amount;
+            if(currUser != null)
+            {
+                // *** Adds total ***
+                total = total + Amount;
+                account.Amount = total;
+                // *** Updates total amount ***
+                // Todo: Needs to update with new amount of funding. Still reflecting old amount
+                _context.Account.Update(account);
+                return RedirectToAction("Userdashboard", "Customer");
+            }
+            return RedirectToAction("Userdashboard", "Customer");
         }
     }
 }
