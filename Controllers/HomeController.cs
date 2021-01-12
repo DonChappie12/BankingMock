@@ -58,9 +58,10 @@ namespace banking.Controllers
             if(ModelState.IsValid)
             {
                 var result = await _signInManager.PasswordSignInAsync(user.Email, user.Password, user.RememberMe, lockoutOnFailure: false);
-                // var result = await _signInManager.PasswordSignInAsync();
                 if(result.Succeeded)
                 {
+                    // if(_userManager.IsInRoleAsync(result, "Admin"))
+                    //     return RedirectToAction("Dashboard", "Admin");
                     // Todo to validate role User
                     return RedirectToAction("Index", "Home");
                 }

@@ -102,7 +102,7 @@ using banking.Models;
             WriteLiteral("    ");
             EndContext();
             BeginContext(208, 116, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8b93966496144551b032887e401a3b5e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "6a724db3ac8b41848d286d9b10db71c9", async() => {
                 BeginContext(303, 17, true);
                 WriteLiteral("Edit User Details");
                 EndContext();

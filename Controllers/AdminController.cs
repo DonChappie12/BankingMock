@@ -58,6 +58,7 @@ namespace banking.Controllers
         {
             if(ModelState.IsValid)
             {
+                // *** Creates new user to DB ***
                 User create = new User
                 {
                     FirstName = newUser.FirstName,
@@ -69,6 +70,7 @@ namespace banking.Controllers
                 var result = await _userManager.CreateAsync(create, newUser.Password);
                 if(result.Succeeded)
                 {
+                    // *** Currently creates user with role of Customer
                     await _userManager.AddToRoleAsync(create, "Customer");
                     return RedirectToAction("Dashboard", "Admin");
                 }
@@ -84,6 +86,7 @@ namespace banking.Controllers
         [HttpPost]
         public async Task<IActionResult> Update(string Id, EditUser edit)
         {
+            // *** Find User in DB ***
             User editingUser = await _userManager.FindByIdAsync(Id);
             if(editingUser != null && ModelState.IsValid)
             {
@@ -91,11 +94,12 @@ namespace banking.Controllers
                 editingUser.LastName = edit.LastName;
                 editingUser.Email = edit.Email;
                 editingUser.DateOfBirth = edit.DateOfBirth;
-                
+                // *** Saves edited user to DB ***
                 IdentityResult result = await _userManager.UpdateAsync(editingUser);
                 if (result.Succeeded)
                     return RedirectToAction("Dashboard", "Admin");
             }
+            // ? Currently redirects to Admin Dashboard
             return RedirectToAction("EditUser", "Admin");
         }
 
@@ -106,7 +110,7 @@ namespace banking.Controllers
             User user = await _userManager.FindByIdAsync(Id);
             if (user != null)
             {
-                // *** Validates if user has accounts  and removes them***
+                // *** Validates if user has accounts and removes them***
                 var removeAccounts = _context.Account;
                 if(removeAccounts != null)
                 {

@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using banking.Models;
 using Microsoft.AspNetCore.Identity;
@@ -46,6 +47,7 @@ namespace banking.Controllers
             {
                 if(ModelState.IsValid)
                 {
+                    // Todo: Validate that TpeOfAccount is Checkings or Savings
                     // if(Acc.TypeOfAccount != "Checkings" || Acc.TypeOfAccount != "Savings")
                     // {
                     //     return View(Acc);
@@ -65,8 +67,15 @@ namespace banking.Controllers
             return View();
         }
 
-        [Route("Id")]
-        public IActionResult AccountDetails()
+        public async Task<IActionResult> AccountDetails(string Id)
+        {
+            // *** Finds current user and the Account expected on click ***
+            User currUser = await _userManager.GetUserAsync(HttpContext.User);
+            var account = _context.Account.Where(userId => userId.user.Id == currUser.Id).SingleOrDefault(i => i.Id.ToString() == Id);
+            return View(account);
+        }
+
+        public IActionResult EditAccount()
         {
             return View();
         }
