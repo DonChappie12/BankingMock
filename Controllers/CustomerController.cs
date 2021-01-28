@@ -120,16 +120,20 @@ namespace banking.Controllers
             // *** Gets current user and account associated with current user ***
             User currUser = await _userManager.GetUserAsync(HttpContext.User);
             var account = _context.Account.Where(userId => userId.user.Id == currUser.Id).SingleOrDefault(i => i.Id.ToString() == Id);
+
             // *** We will add total amount with new funding ***
             var total = account.Amount;
+
             if(currUser != null)
             {
                 // *** Adds total ***
                 total = total + Amount;
                 account.Amount = total;
+
                 // *** Updates total amount ***
-                // Todo: Needs to update with new amount of funding. Still reflecting old amount
                 _context.Account.Update(account);
+                await _context.SaveChangesAsync();
+                
                 return RedirectToAction("Userdashboard", "Customer");
             }
             return RedirectToAction("Userdashboard", "Customer");

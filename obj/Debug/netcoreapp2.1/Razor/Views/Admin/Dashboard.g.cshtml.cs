@@ -104,7 +104,7 @@ using banking.Models;
             WriteLiteral("</td>\n                        <td>\n                            ");
             EndContext();
             BeginContext(567, 122, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fb3c39a5c8dc4b999e6dd2f27442addf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1f6c21c877d041b2bc3dff2d2667ef28", async() => {
                 BeginContext(668, 17, true);
                 WriteLiteral("View User Details");
                 EndContext();
@@ -142,7 +142,7 @@ using banking.Models;
             WriteLiteral("\n                            ");
             EndContext();
             BeginContext(718, 117, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bdd6eea0b5584054aefdbf7e8a996ff6", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "7d37fc892074429b9888e59405164ad5", async() => {
                 BeginContext(814, 17, true);
                 WriteLiteral("Edit User Details");
                 EndContext();
@@ -180,7 +180,7 @@ using banking.Models;
             WriteLiteral("\n                        </td>\n                        <td>\n                            ");
             EndContext();
             BeginContext(923, 291, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "bf411faf37dd462692443e0c866d45d0", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0e23f97adaec4b4791ee5c17e358e42b", async() => {
                 BeginContext(1010, 197, true);
                 WriteLiteral("\n                                <button type=\"submit\" class=\"btn btn-danger\">\n                                    Delete User\n                                </button>\n                            ");
                 EndContext();
