@@ -1,3 +1,30 @@
-<div>
-    <h2>User list</h2>
-</div>
+@model IEnumerable<User>
+
+    <div class="container">
+        <div class="row">
+            <h1>Hi</h1>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Email</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach(User user in Model){
+                        <tr>
+                            <td>@user.Id</td>
+                            <td>@user.Email</td>
+                            <td>
+                                <a class="btn btn-light" asp-controller="Manager" asp-action="ViewUserDetails" asp-route-id="@user.Id">View User Details</a>
+                                <a class="btn btn-warning" asp-controller="Manager" asp-action="EditUser" asp-route-id="@user.Id">Edit User Details</a>
+                                <!-- <a class="btn btn-light">View User Details</a>
+                                <a class="btn btn-warning">Edit User Details</a> -->
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>

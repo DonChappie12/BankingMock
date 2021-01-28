@@ -47,3 +47,5 @@
 /Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Customer/EditAccount.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Customer/AddFunds.g.cshtml.cs
 /Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Customer/EditSelf.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Manager/ViewUserDetails.g.cshtml.cs
+/Users/davidgonzalez/Documents/personal_code/banking/obj/Debug/netcoreapp2.1/Razor/Views/Manager/EditUser.g.cshtml.cs

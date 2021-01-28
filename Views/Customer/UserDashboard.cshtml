@@ -2,31 +2,18 @@
 
 <div>
     <h2>Welcome @Model.FirstName</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Type of Account</th>
-                <th>Amount</th>
-                <th>View</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach(var act in @ViewBag.accounts){
-                <tr>
-                    <td>@act.TypeOfAccount</td>
-                    <td>$@act.Amount</td>
-                    <td>
-                        <!-- <button type="submit" class="btn btn-light" href="/@act.Id">View Account Details</button> -->
+    <div class="row">
+        @foreach(var act in @ViewBag.accounts){
+            <div class="col-sm-6">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@act.TypeOfAccount</h5>
+                        <p class="card-text">$@act.Amount</p>
                         <a class="btn btn-light" asp-controller="Customer" asp-action="AccountDetails" asp-route-id="@act.Id">View Account Details</a>
                         <a class="btn btn-warning" asp-controller="Customer" asp-action="EditAccount" asp-route-id="@act.Id">Edit Account</a>
-                        <!-- <form asp-controller="Customer" asp-action="Delete" asp-route-id="@act.Id" method="post">
-                            <button type="submit" class="btn btn-danger">
-                                Delete User
-                            </button>
-                        </form> -->
-                    </td>
-                </tr>
-            }
-        </tbody>
-    </table>    
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
 </div>
