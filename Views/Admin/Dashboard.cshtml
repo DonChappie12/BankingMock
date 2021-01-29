@@ -3,11 +3,12 @@
 <div class="container">
     <div class="row">
         <h1>Hi</h1>
-        <table>
+        <table class="table table-bordered table-hover">
             <thead>
                 <tr>
-                    <th>Id</th>
+                    <th>Full Name</th>
                     <th>Email</th>
+                    <th># of Accounts</th>
                     <th>Actions</th>
                     <th>Delete</th>
                 </tr>
@@ -15,8 +16,16 @@
             <tbody>
                 @foreach(User user in Model){
                     <tr>
-                        <td>@user.Id</td>
+                        @if(@user.FirstName == null && @user.LastName == null)
+                        {
+                            <td>N/A</td>
+                        }
+                        else
+                        {
+                            <td>@user.FirstName @user.LastName</td>
+                        }
                         <td>@user.Email</td>
+                        <td>@user.Account.Count()</td>
                         <td>
                             <a class="btn btn-light" asp-controller="Admin" asp-action="ViewUserDetails" asp-route-id="@user.Id">View User Details</a>
                             <a class="btn btn-warning" asp-controller="Admin" asp-action="EditUser" asp-route-id="@user.Id">Edit User Details</a>

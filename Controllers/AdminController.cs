@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -20,9 +21,10 @@ namespace banking.Controllers
             _signInManager = signInManager;
         }
 
-        public IActionResult Dashboard()
+        public async Task<IActionResult> Dashboard()
         {
-            var allUsers = _userManager.Users;
+            User currUser = await _userManager.GetUserAsync(HttpContext.User);
+            var allUsers = _userManager.Users.Where(user => user.Email != currUser.Email);
             return View(allUsers);
         }
 

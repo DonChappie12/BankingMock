@@ -24,10 +24,11 @@ namespace banking.Controllers
             return View();
         }
 
-        public IActionResult UserList()
+        public async Task<IActionResult> UserList()
         {
             var allUsers = _userManager.Users;
-            return View(allUsers);
+            var roles = await _userManager.GetUsersInRoleAsync("Customer");
+            return View(roles);
         }
 
         public async Task<IActionResult> ViewUserDetails(string Id)
